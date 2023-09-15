@@ -31,7 +31,14 @@ def viewExpense():
 # additional: load a standard set of descriptions (.txt) for ease of input
 # -------------------------------------------------------------------------
 def addExpense():
-    pass
+    date_detail = input('Date of expense (dd/mm/yyyy): ')
+    date_split = date_detail.split('/')
+    date_object = date(int(date_split[2]), int(date_split[1]), int(date_split[0]))
+
+    amount = float(input('Expense amount ($): '))
+
+    description_detail = input("Description of expenses: ")
+    return date_object, amount, description_detail
 
 
 def deleteExpense():
