@@ -14,7 +14,35 @@ expenses_list = []  # all the expenses joined into a single list
 #    Displays the main menu
 # --------------------------
 def menu():
-    pass
+    menu_printList = input("""What would you like to do?
+        1] View all expenses
+        2] Add an expense
+        3] Delete an expense
+        4] Edit an expense
+        5] Analyse expenses
+        6] Search expenses
+        Choice: 
+        """)
+
+    choice_list = {
+        "1": "View expenses",
+        "2": "Add an expense",
+        "3": "Delete an expense",
+        "4": "Edit and expense",
+        "5": "Analyse expenses",
+        "6": "Search expenses"
+    }
+
+    choice = choice_list.get(menu_printList, "Please input correct choice.")
+
+    # print("1. View expenses")
+    # print("2. Add expense")
+    # print("3. Delete expense")
+    # print("4. Edit expense")
+    # print("5. Analyse expenses")
+    # print("6. Search expenses")
+    # choice = int(input('Your choice? '))
+    return choice
 
 
 # --------------------------------------
@@ -117,6 +145,27 @@ libraries like Matplotlib or Plotly. You'll need to collect and process the data
 print(" EXPENSES TRACKER")
 print("------------------")
 print()
-# while True:
-#     # displays main menu & prompt for user's choice
-#     main_choice = menu()
+while True:
+    new_old_choice = input("New set of expenses or open currently stored? (New/Current): ")
+    if new_old_choice == 'Current':
+        loadExpense()
+    elif new_old_choice == 'New':
+        initialiseExpense()
+
+    # displays main menu & prompt for user's choice
+    main_choice = menu()
+    if main_choice == 1:
+        viewExpense()
+    elif main_choice == 2:
+        addExpense()
+    elif main_choice == 3:
+        deleteExpense()
+    elif main_choice == 4:
+        editExpense()
+    elif main_choice == 5:
+        analyseExpense()
+    elif main_choice == 6:
+        searchExpense()
+
+    break
+
