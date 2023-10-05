@@ -80,6 +80,21 @@ def addExpense():
     print("| Categories |")
     print(" ------------")
 
+    categories_printList = input("""1] Food
+        2] Transportation
+        3] Shopping
+        4] Others
+        Choose category: """)
+
+    category_list = {
+        "1": "Food",
+        "2": "Transportation",
+        "3": "Shopping",
+        "4": "Others"
+    }
+
+    category_choice = category_list.get(categories_printList, "Please input correct choice.")
+
     # add new expense to expenses_list
     return date_object, amount, description_detail, expenses_list
 
